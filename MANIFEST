@@ -14,3 +14,4 @@ MANIFEST			This list of files
 META.yml
 README
 t/boolean.t
+t/null.t

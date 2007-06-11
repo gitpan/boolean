@@ -1,16 +1,16 @@
-NAME boolean
-    Boolean support for Perl
+NAME
+    boolean - Boolean support for Perl
 
 SYNOPSIS
-        use boolean :all;
+        use boolean ':all';
 
-        if (true) do always;
-        if (false) do never;
+        do &always if true;
+        do &never if false;
 
         $guess = int(rand(2)) % 2 ? true : false;
 
-        do something if isTrue($guess);
-        do something_else if isFalse($guess);
+        do &something if isTrue($guess);
+        do &something_else if isFalse($guess);
 
 DESCRIPTION
     Most programming languages have a native "Boolean" data type. Perl does
@@ -20,9 +20,10 @@ DESCRIPTION
     values are false:
 
         $false1 = undef;
-        $false2 = '';
-        $false3 = 0;
-        $false4 = '0';
+        $false2 = 0;
+        $false3 = 0.0;
+        $false4 = '';
+        $false5 = '0';
 
     Every other scalar value is true.
 
@@ -47,25 +48,35 @@ IMPORTABLE SUBROUTINES
 
         use boolean ':all';
 
-  true()
+  true
+        true()
+
     This function always returns a scalar whose value is the Perl internals
     constant "PL_sv_yes". The function acts like a constant and thus takes
     no input parameters.
 
-  true()
+  false
+        false()
+
     This function always returns a scalar whose value is the Perl internals
     constant "PL_sv_no". The function acts like a constant and thus takes no
     input parameters.
 
-  isTrue($scalar)
+  isTrue
+        isTrue($scalar)
+
     Returns "true" if the scalar passed to it is actually "PL_sv_yes".
     Returns "false" otherwise.
 
-  isTrue($scalar)
+  isFalse
+        isFalse($scalar)
+
     Returns "true" if the scalar passed to it is actually "PL_sv_no".
     Returns "false" otherwise.
 
-  isBoolean($scalar)
+  isBoolean
+        isBoolean($scalar)
+
     Returns "true" if the scalar passed to it is actually "PL_sv_yes" or
     "PL_sv_no". Returns "false" otherwise.
 
@@ -114,6 +125,18 @@ YAML AND JSON
     constants as "boolean.pm" does. When these values are Dumped they are
     unquoted. Pure Perl YAML and JSON implementations can use "boolean.pm"
     to accomplish this.
+
+BUGS
+    Currently, assigning a boolean value to a variable causes the booleanity
+    to be lost. This code dies:
+
+        $x = true;
+        isBoolean($x) || isTrue($x) or die;
+
+    If you know how to solve this using SV magic or otherwise, please let me
+    know. I'm trying to fix it myslf now. Hoping to not need to resort to:
+
+        setTrue($x);
 
 AUTHOR
     Ingy döt Net <ingy@cpan.org>

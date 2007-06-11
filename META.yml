@@ -1,4 +1,4 @@
-abstract: ~
+abstract: Boolean support for Perl
 author: "Ingy d\xC3\xB6t Net <ingy@cpan.org>"
 distribution_type: module
 generated_by: Module::Install version 0.64
@@ -10,4 +10,4 @@ no_index:
     - t
 requires: 
   perl: 5.005003
-version: 0.10
+version: 0.11

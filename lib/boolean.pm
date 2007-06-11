@@ -1,7 +1,7 @@
 package boolean;
 use 5.005003;
 use strict;
-$boolean::VERSION = '0.10';
+$boolean::VERSION = '0.11';
 
 use XSLoader;
 XSLoader::load 'boolean';
@@ -16,21 +16,23 @@ use base 'Exporter';
     all => [qw(true false isTrue isFalse isBoolean)],
 );
 
-=head1 NAME boolean
+=encoding utf8
 
-Boolean support for Perl
+=head1 NAME
+
+boolean - Boolean support for Perl
 
 =head1 SYNOPSIS
 
-    use boolean :all;
+    use boolean ':all';
 
-    if (true) do always;
-    if (false) do never;
+    do &always if true;
+    do &never if false;
 
     $guess = int(rand(2)) % 2 ? true : false;
 
-    do something if isTrue($guess);
-    do something_else if isFalse($guess);
+    do &something if isTrue($guess);
+    do &something_else if isFalse($guess);
 
 =head1 DESCRIPTION
 
@@ -41,9 +43,10 @@ Perl has a simple and well known Truth System. The following scalar
 values are false:
 
     $false1 = undef;
-    $false2 = '';
-    $false3 = 0;
-    $false4 = '0';
+    $false2 = 0;
+    $false3 = 0.0;
+    $false4 = '';
+    $false5 = '0';
 
 Every other scalar value is true.
 
@@ -75,29 +78,39 @@ of the following subroutines if you use the following invocation:
 
     use boolean ':all';
 
-=head2 true()
+=head2 true
+
+    true()
 
 This function always returns a scalar whose value is the Perl internals
 constant C<PL_sv_yes>. The function acts like a constant and thus takes
 no input parameters.
 
-=head2 true()
+=head2 false
+
+    false()
 
 This function always returns a scalar whose value is the Perl internals
 constant C<PL_sv_no>. The function acts like a constant and thus takes
 no input parameters.
 
-=head2 isTrue($scalar)
+=head2 isTrue
+
+    isTrue($scalar)
 
 Returns C<true> if the scalar passed to it is actually C<PL_sv_yes>.
 Returns C<false> otherwise.
 
-=head2 isTrue($scalar)
+=head2 isFalse
+
+    isFalse($scalar)
 
 Returns C<true> if the scalar passed to it is actually C<PL_sv_no>.
 Returns C<false> otherwise.
 
-=head2 isBoolean($scalar)
+=head2 isBoolean
+
+    isBoolean($scalar)
 
 Returns C<true> if the scalar passed to it is actually C<PL_sv_yes> or
 C<PL_sv_no>. Returns C<false> otherwise.
@@ -151,6 +164,19 @@ Unquoted values of this set can be Loaded into Perl using the same
 constants as C<boolean.pm> does. When these values are Dumped they are
 unquoted. Pure Perl YAML and JSON implementations can use C<boolean.pm>
 to accomplish this.
+
+=head1 BUGS
+
+Currently, assigning a boolean value to a variable causes the booleanity
+to be lost. This code dies:
+
+    $x = true;
+    isBoolean($x) || isTrue($x) or die;
+
+If you know how to solve this using SV magic or otherwise, please let me
+know. I'm trying to fix it myslf now. Hoping to not need to resort to:
+
+    setTrue($x);
 
 =head1 AUTHOR
 
