@@ -89,7 +89,7 @@ OTHER IMPORTABLE SUBROUTINES
     giving it the name ""null"" to match common programming language
     terminology.
 
-  true()
+  null()
     This function always returns a scalar whose value is the Perl internals
     constant "PL_sv_undef". The function acts like a constant and thus takes
     no input parameters.
@@ -139,10 +139,10 @@ BUGS
         setTrue($x);
 
 AUTHOR
-    Ingy dÃ¶t Net <ingy@cpan.org>
+    Ingy döt Net <ingy@cpan.org>
 
 COPYRIGHT
-    Copyright (c) 2007. Ingy dÃ¶t Net. All rights reserved.
+    Copyright (c) 2007, 2008. Ingy döt Net.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

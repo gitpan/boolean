@@ -1,7 +1,7 @@
 package boolean;
 use 5.005003;
 use strict;
-$boolean::VERSION = '0.11';
+$boolean::VERSION = '0.12';
 
 use XSLoader;
 XSLoader::load 'boolean';
@@ -125,7 +125,7 @@ This module exposes corresponding subroutines for the undef value,
 giving it the name "C<null>" to match common programming language
 terminology.
 
-=head2 true()
+=head2 null()
 
 This function always returns a scalar whose value is the Perl internals
 constant C<PL_sv_undef>. The function acts like a constant and thus takes
@@ -184,7 +184,7 @@ Ingy döt Net <ingy@cpan.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2007. Ingy döt Net. All rights reserved.
+Copyright (c) 2007, 2008. Ingy döt Net.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
