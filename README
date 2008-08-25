@@ -2,10 +2,14 @@ NAME
     boolean - Boolean support for Perl
 
 SYNOPSIS
-        use boolean ':all';
+        use boolean;
 
         do &always if true;
         do &never if false;
+
+    and:
+
+        use boolean ':all';
 
         $guess = int(rand(2)) % 2 ? true : false;
 
@@ -27,116 +31,66 @@ DESCRIPTION
 
     Every other scalar value is true.
 
-    A lesser known aspect of Perl is that its C API has two constant scalar
-    values:
+    This module provides basic Boolean support, by defining two special
+    objects: "true" and "false".
 
-    "PL_sv_yes"
-        This is the "true" SV. It is a Perl internals constant scalar with a
-        value of 1. See perlapi for more info.
+IMPLEMENTATION NOTE
+    Version 0.20 is a complete rewrite from version 0.12. The old version
+    used XS and had some fundamental flaws. The new version is pure Perl and
+    is more correct. The new version depends on overload.pm to make the true
+    and false objects return 1 and 0 respectively.
 
-    "PL_sv_no"
-        This is the "false" SV. It is a Perl internals constant scalar with
-        a value of ''. See perlapi for more info.
+    The "null" support found in 0.12 was also removed as superfluous.
 
-    The "boolean" module exposes these obscure values as the subroutines
-    "true" and "false". Finding meaningful ways to use these in a Perl
-    program is left as an exercise for the reader.
+RATIONALE
+    When sharing data between programming languages, it is important to
+    support the same group of basic types. In Perlish programming languages,
+    these types include: Hash, Array, String, Number, Null and Boolean. Perl
+    lacks native Boolean support.
 
-IMPORTABLE SUBROUTINES
-    This module does not export any subroutines by default. It exports all
-    of the following subroutines if you use the following invocation:
+    Data interchange modules like YAML and JSON can now "use boolean" to
+    encode/decode/roundtrip Boolean values.
 
-        use boolean ':all';
+FUNCTIONS
+    This module defines the following functions:
 
-  true
-        true()
+    true
+        This function returns a scalar value which should evaluate to true.
+        The value is a singleton object, meaning there is only one "true"
+        value in a Perl process at any time. You can check to see whether
+        the value is the "true" object with the isTrue function described
+        below.
 
-    This function always returns a scalar whose value is the Perl internals
-    constant "PL_sv_yes". The function acts like a constant and thus takes
-    no input parameters.
+    false
+        This function returns a scalar value which should evaluate to false.
+        The value is a singleton object, meaning there is only one "false"
+        value in a Perl process at any time. You can check to see whether
+        the value is the "false" object with the isFalse function described
+        below.
 
-  false
-        false()
+    isTrue($scalar)
+        Returns "boolean::true" if the scalar passed to it is the
+        "boolean::true" object. Returns "boolean::false" otherwise.
 
-    This function always returns a scalar whose value is the Perl internals
-    constant "PL_sv_no". The function acts like a constant and thus takes no
-    input parameters.
+    isFalse($scalar)
+        Returns "boolean::true" if the scalar passed to it is the
+        "boolean::false" object. Returns "boolean::false" otherwise.
 
-  isTrue
-        isTrue($scalar)
+    isBoolean($scalar)
+        Returns "boolean::true" if the scalar passed to it is the
+        "boolean::true" or "boolean::false" object. Returns "boolean::false"
+        otherwise.
 
-    Returns "true" if the scalar passed to it is actually "PL_sv_yes".
-    Returns "false" otherwise.
+EXPORTABLES
+    By default this module exports the "true" and "false" functions.
 
-  isFalse
-        isFalse($scalar)
+    The module also defines these export tags:
 
-    Returns "true" if the scalar passed to it is actually "PL_sv_no".
-    Returns "false" otherwise.
+    :all
+        Exports "true", "false", "isTrue", "isFalse", "isBoolean"
 
-  isBoolean
-        isBoolean($scalar)
-
-    Returns "true" if the scalar passed to it is actually "PL_sv_yes" or
-    "PL_sv_no". Returns "false" otherwise.
-
-OTHER IMPORTABLE SUBROUTINES
-    It turns out that the value for "undef" works out the same as true and
-    false in Perl internals. All scalar values set to undef actually point
-    to the same scalar value internally, "PL_sv_undef".
-
-    This module exposes corresponding subroutines for the undef value,
-    giving it the name ""null"" to match common programming language
-    terminology.
-
-  null()
-    This function always returns a scalar whose value is the Perl internals
-    constant "PL_sv_undef". The function acts like a constant and thus takes
-    no input parameters.
-
-  isNull($scalar)
-    Returns "true" if the scalar passed to it is actually "PL_sv_undef".
-    Returns "false" otherwise.
-
-YAML AND JSON
-    It is true by definition that all valid JSON streams are valid YAML
-    streams. The YAML and JSON specification writers have worked together to
-    ensure this.
-
-    This leads to the following implications for Boolean values.
-
-    JSON supports 3 data types and null values:
-
-        {
-            "string type": "all strings are double quoted in JSON",
-            "number type": [1, 2, 3.1415],
-            "boolean type": [true, false],
-            "null type": null
-        }
-
-    Strings are always double quoted. All hash keys are strings (thus
-    quoted). Only numbers (integer and floating point) boolean values and
-    null values are unquoted.
-
-    I recommend that all Perl YAML and JSON implementations always Dump
-    scalar strings with the value "true", "false" or "null", using quotes.
-
-    Unquoted values of this set can be Loaded into Perl using the same
-    constants as "boolean.pm" does. When these values are Dumped they are
-    unquoted. Pure Perl YAML and JSON implementations can use "boolean.pm"
-    to accomplish this.
-
-BUGS
-    Currently, assigning a boolean value to a variable causes the booleanity
-    to be lost. This code dies:
-
-        $x = true;
-        isBoolean($x) || isTrue($x) or die;
-
-    If you know how to solve this using SV magic or otherwise, please let me
-    know. I'm trying to fix it myslf now. Hoping to not need to resort to:
-
-        setTrue($x);
+    :test
+        Exports "isTrue", "isFalse", "isBoolean"
 
 AUTHOR
     Ingy döt Net <ingy@cpan.org>
