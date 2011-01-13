@@ -17,8 +17,11 @@ no_index:
   directory:
     - inc
     - t
+recommends:
+  Readonly: 0
+  autobox: 0
 requires:
   perl: 5.005003
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.23
+version: 0.24
