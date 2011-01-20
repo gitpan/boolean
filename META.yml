@@ -12,6 +12,7 @@ license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
+module_name: boolean
 name: boolean
 no_index:
   directory:
@@ -19,9 +20,8 @@ no_index:
     - t
 recommends:
   Readonly: 0
-  autobox: 0
 requires:
   perl: 5.005003
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.25
+version: 0.26
