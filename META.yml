@@ -26,4 +26,4 @@ resources:
   homepage: http://github.com/ingydotnet/boolean-pm/tree
   license: http://dev.perl.org/licenses/
   repository: git://github.com/ingydotnet/boolean-pm.git
-version: 0.27
+version: 0.28

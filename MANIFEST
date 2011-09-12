@@ -18,3 +18,4 @@ META.yml
 README
 t/boolean.t
 t/export.t
+t/truth.t
