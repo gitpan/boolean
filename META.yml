@@ -3,11 +3,12 @@ abstract: 'Boolean support for Perl'
 author:
   - 'Ingy döt Net <ingy@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
 distribution_type: module
-generated_by: 'Module::Install version 1.01'
+dynamic_config: 1
+generated_by: 'Module::Install version 1.06'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -23,7 +24,10 @@ recommends:
 requires:
   perl: 5.005003
 resources:
-  homepage: http://github.com/ingydotnet/boolean-pm/tree
+  homepage: https://github.com/ingydotnet/boolean-pm/tree
   license: http://dev.perl.org/licenses/
-  repository: git://github.com/ingydotnet/boolean-pm.git
-version: 0.28
+  repository:
+    type: git
+    url: git://github.com/ingydotnet/boolean-pm.git
+    web: https://github.com/ingydotnet/boolean-pm/tree
+version: 0.29
