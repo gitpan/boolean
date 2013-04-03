@@ -30,4 +30,4 @@ resources:
     type: git
     url: git://github.com/ingydotnet/boolean-pm.git
     web: https://github.com/ingydotnet/boolean-pm/tree
-version: 0.29
+version: 0.30
