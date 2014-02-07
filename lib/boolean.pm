@@ -1,9 +1,6 @@
-use 5.005003;
-package boolean;
 use strict; use warnings;
-
-$boolean::VERSION = '0.30';
-
+package boolean;
+$boolean::VERSION = '0.31';
 my ($true, $false);
 
 use overload
@@ -246,7 +243,7 @@ Ingy döt Net <ingy@cpan.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2007, 2008, 2010, 2011, 2013. Ingy döt Net.
+Copyright (c) 2007, 2008, 2010, 2011, 2013, 2014. Ingy döt Net.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

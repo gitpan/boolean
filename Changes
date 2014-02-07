@@ -1,91 +1,68 @@
----
-version: 0.30
-date:    Wed Apr  3 15:24:44 PDT 2013
-changes:
-- Fix https://rt.cpan.org/Public/Bug/Display.html?id=84398
-- chip++
-- Documented JSON support.
----
-version: 0.29
-date:    Mon Apr  1 21:48:31 PDT 2013
-changes:
-- Support JSON and JSON::XS. dankogai-san++
----
-version: 0.28
-date:    Mon Sep 12 13:51:47 CEST 2011
-changes:
-- Added -truth option.
-- This idea was inspired by https://rt.cpan.org/Ticket/Display.html?id=65536
-- Awesome idea!
-- Released from Liz++&Wendy++ downstairs bathroom
----
-version: 0.27
-date:    Tue Jun 28 10:47:01 EDT 2011
-changes:
-- Switch to Module::Package at YAPC 2011 ++
----
-version: 0.26
-date:    Fri Jan 21 00:05:44 EST 2011
-changes:
-- Fixed doc bug reported by KENTNL++
-- Tweaked Makefile.PL
----
-version: 0.25
-date:    Sat Jan 15 19:05:19 EST 2011
-changes:
-- Fixed a bug caused by Readonly::XS (schwern++)
-- Removed the new methods and autobox methods.
-  They didn't add much except confusion.
-- Documented that you can use isTrue and isFalse as methods.
-- '&boolean(1,2,3) now dies like boolean(1,2,3)'
-- '&boolean() now dies like boolean()'
----
-version: 0.24
-date:    Thu Jan 13 15:27:09 EST 2011
-changes:
-- '@Schwern++ found out how to make true and false immutable.
-  Kudos to #strategicdata++.'
-- Document the boolean() function.
-- Added is_true and is_false methods.
-- Added boolean, is_true, and is_false autobox methods
----
-version: 0.23
-date:    Thu Sep 16 19:27:54 PDT 2010
-changes:
-- Weird macosx dist bug broke everything. Worked around.
----
-version: 0.22
-date:    Wed Sep 15 00:21:20 PDT 2010
-changes:
-- Update copyright years.
----
-version: 0.21
-date:    Mon Sep 13 18:40:21 PDT 2010
-changes:
-- Add a boolean($) coercer export function
-- Add many more tests (from 20 to 55 tests)
-- Add prototypes to all exports functions
-- Overload not and ! to return boolean
----
-version: 0.20
-date:    Sun Aug 24 18:52:39 PDT 2008
-changes:
-- Total rewrite.
-- Drop XS code. Uses pure perl.
-- Objects are scalar refs with overloading.
-- Drop null support.
----
-version: 0.12
-date:    Tue Jun  3 21:33:58 PDT 2008
-changes:
-- Doc fixes.
----
-version: 0.11
-date:    Mon Jun 11 12:17:58 PDT 2007
-changes:
-- Doc fixes. Thanks Adriano Ferreira.
-- Test refactoring.
----
-version: 0.10
-date:    Sun Jun 10 15:46:33 PDT 2007
-changes: isTrue('first release');
+0.31 Thu Feb  6 18:28:28 PST 2014
+ - Switch to dzil
+
+0.30 Wed Apr  3 15:24:44 PDT 2013
+ - Fix https://rt.cpan.org/Public/Bug/Display.html?id=84398
+ - chip++
+ - Documented JSON support.
+
+0.29 Mon Apr  1 21:48:31 PDT 2013
+ - Support JSON and JSON::XS. dankogai-san++
+
+0.28 Mon Sep 12 13:51:47 CEST 2011
+ - Added -truth option.
+ - This idea was inspired by
+   https://rt.cpan.org/Ticket/Display.html?id=65536
+ - Awesome idea!
+ - Released from Liz++&Wendy++ downstairs bathroom
+
+0.27 Tue Jun 28 10:47:01 EDT 2011
+ - Switch to Module::Package at YAPC 2011 ++
+
+0.26 Fri Jan 21 00:05:44 EST 2011
+ - Fixed doc bug reported by KENTNL++
+ - Tweaked Makefile.PL
+
+0.25 Sat Jan 15 19:05:19 EST 2011
+ - Fixed a bug caused by Readonly::XS (schwern++)
+ - Removed the new methods and autobox methods. They didn't add much except
+   confusion.
+ - Documented that you can use isTrue and isFalse as methods.
+ - &boolean(1,2,3) now dies like boolean(1,2,3)
+ - &boolean() now dies like boolean()
+
+0.24 Thu Jan 13 15:27:09 EST 2011
+ - @Schwern++ found out how to make true and false immutable. Kudos to
+   #strategicdata++.
+ - Document the boolean() function.
+ - Added is_true and is_false methods.
+ - Added boolean, is_true, and is_false autobox methods
+
+0.23 Thu Sep 16 19:27:54 PDT 2010
+ - Weird macosx dist bug broke everything. Worked around.
+
+0.22 Wed Sep 15 00:21:20 PDT 2010
+ - Update copyright years.
+
+0.21 Mon Sep 13 18:40:21 PDT 2010
+ - Add a boolean($) coercer export function
+ - Add many more tests (from 20 to 55 tests)
+ - Add prototypes to all exports functions
+ - Overload not and ! to return boolean
+
+0.20 Sun Aug 24 18:52:39 PDT 2008
+ - Total rewrite.
+ - Drop XS code. Uses pure perl.
+ - Objects are scalar refs with overloading.
+ - Drop null support.
+
+0.12 Tue Jun  3 21:33:58 PDT 2008
+ - Doc fixes.
+
+0.11 Mon Jun 11 12:17:58 PDT 2007
+ - Doc fixes. Thanks Adriano Ferreira.
+ - Test refactoring.
+
+0.10 Sun Jun 10 15:46:33 PDT 2007
+ - isTrue('first release');
+
