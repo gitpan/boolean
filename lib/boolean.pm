@@ -1,6 +1,7 @@
 use strict; use warnings;
 package boolean;
-$boolean::VERSION = '0.31';
+our $VERSION = '0.32'; # VERSION
+
 my ($true, $false);
 
 use overload

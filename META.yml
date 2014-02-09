@@ -4,20 +4,20 @@ author:
   - 'Ingy döt Net <ingy@cpan.org>'
 build_requires: {}
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
+  ExtUtils::MakeMaker: '6.30'
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 5.012, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: boolean
 recommends:
-  Readonly: 0
+  Readonly: '0'
 requires:
   perl: v5.8.1
 resources:
   bugtracker: https://github.com/ingydotnet/boolean-pm/issues
   homepage: https://github.com/ingydotnet/boolean-pm
   repository: https://github.com/ingydotnet/boolean-pm.git
-version: 0.31
+version: '0.32'
