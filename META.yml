@@ -23,4 +23,4 @@ resources:
   bugtracker: https://github.com/ingydotnet/boolean-pm/issues
   homepage: https://github.com/ingydotnet/boolean-pm
   repository: https://github.com/ingydotnet/boolean-pm.git
-version: '0.33'
+version: '0.34'

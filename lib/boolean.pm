@@ -1,7 +1,7 @@
 # ABSTRACT: Boolean support for Perl
 use strict; use warnings;
 package boolean;
-$boolean::VERSION = '0.33';
+$boolean::VERSION = '0.34';
 my ($true, $false);
 
 use overload
