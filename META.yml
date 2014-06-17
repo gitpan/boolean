@@ -17,10 +17,11 @@ no_index:
     - inc
     - t
     - xt
+    - example
 requires:
   perl: v5.8.1
 resources:
   bugtracker: https://github.com/ingydotnet/boolean-pm/issues
   homepage: https://github.com/ingydotnet/boolean-pm
   repository: https://github.com/ingydotnet/boolean-pm.git
-version: '0.34'
+version: '0.35'
