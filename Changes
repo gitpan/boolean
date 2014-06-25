@@ -1,4 +1,7 @@
-0.36 Wed Jun 25 16:39:02 PDT 2014
+0.37 Wed Jun 25 16:47:29 PDT 2014
+ - Add JSON to recommends
+
+0.36 Wed Jun 25 16:46:39 PDT 2014
  - Fix homepage in metadata
 
 0.35 Tue Jun 17 10:59:25 PDT 2014

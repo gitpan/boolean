@@ -18,10 +18,12 @@ no_index:
     - t
     - xt
     - example
+recommends:
+  JSON: '0'
 requires:
   perl: v5.8.1
 resources:
   bugtracker: https://github.com/ingydotnet/boolean-pm/issues
   homepage: https://github.com/ingydotnet/boolean-pm
   repository: https://github.com/ingydotnet/boolean-pm.git
-version: '0.36'
+version: '0.37'
