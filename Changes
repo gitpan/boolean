@@ -1,3 +1,6 @@
+0.36 Wed Jun 25 16:39:02 PDT 2014
+ - Fix homepage in metadata
+
 0.35 Tue Jun 17 10:59:25 PDT 2014
  - Remove ABSTRACT and use manual $VERSION
 
