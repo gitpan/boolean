@@ -1,3 +1,7 @@
+0.39 Sat Aug  2 10:17:12 PDT 2014
+ - Fix Copyright years.
+ - Fix Meta and add Contributing
+
 0.38 Wed Jun 25 21:08:05 PDT 2014
  - Revert json.t. Failed on cpantesters.
 
