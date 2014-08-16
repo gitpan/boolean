@@ -9,6 +9,7 @@ Makefile.PL
 README
 lib/boolean.pm
 lib/boolean.pod
+t/000-compile-modules.t
 t/boolean.t
 t/export.t
 t/json.t
