@@ -4,13 +4,13 @@
       "Ingy döt Net <ingy@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.132830",
+   "generated_by" : "Dist::Zilla version 5.029, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
-      "version" : "2"
+      "version" : 2
    },
    "name" : "boolean",
    "no_index" : {
@@ -24,7 +24,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "develop" : {
@@ -53,6 +53,6 @@
          "web" : "https://github.com/ingydotnet/boolean-pm"
       }
    },
-   "version" : "0.42"
+   "version" : "0.43"
 }
 
